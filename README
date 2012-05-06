@@ -1,0 +1,52 @@
+-----------------
+REQUIREMENTS
+----------------
+The code needs to be run on the stdlinux environment.
+
+-------------------
+USAGE INSTRUCTIONS
+-------------------
+1. Run "startServer.sh" script on the server machine specifying 
+the server port i.e. listening port.
+
+dharman@delta$ startServer.sh 30001
+
+2. Run "startClient.sh" script on the client machine specifying
+the server hostname, server port and name of file to be transferred.
+
+dharman@beta$ startClient.sh delta 30001 testfile
+
+3. To kill the running processes on either client or server, execute
+the "killscript".
+
+----------------------------
+myTCPsocket.c, myTCPsocket.h
+----------------------------
+These files contain the custom TCP Socket implementation over UDP. 
+The application will use this API for the socket calls such as SOCKET,
+BIND, CONNECT, ACCEPT, SEND, RECV, CLOSE
+
+---------------
+TCPD.c, TCPD.h
+---------------
+These files contain the TCP layer implementation that handles sending and
+receiving packets reliably over UDP.
+
+----------------
+Timer.c, Timer.h
+----------------
+These files contain the retransmission timer implementation in the form
+of a delta list t enable timeout feature. The Timer process forks a Clock
+process which sends repeated ticks to represent the progress of time.
+
+----------------
+client.c (ftpc)
+----------------
+Client application that sends a file to the server.
+
+--------------
+server.c (ftps)
+--------------
+Server application that receives files from remote client application.
+
+

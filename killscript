@@ -1,0 +1,5 @@
+killall troll
+killall Timer
+killall TCPD
+killall ftpc
+killall ftps
